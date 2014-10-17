@@ -240,7 +240,7 @@ bool AnyOption::doubleCharStorage()
 
 bool AnyOption::doubleUsageStorage()
 {
-    int newSize = max_usage_lines + 1;
+    int newSize = max_usage_lines * 2 + 1;
     usage = (const char**)realloc(usage, newSize * sizeof(const char*));
     if (usage == NULL) return false;
     for (int32_t i = max_usage_lines; i < newSize; i++)
