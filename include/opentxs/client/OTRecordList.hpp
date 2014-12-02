@@ -343,6 +343,174 @@ public:
     EXPORT int32_t size() const;
     EXPORT OTRecord GetRecord(int32_t nIndex);
     EXPORT bool RemoveRecord(int32_t nIndex);
+
+    // These functions are unnecessary when using from C++.
+    // However, they DID turn out to be necessary when using from Java.
+    //
+    EXPORT bool Record_IsPending(int32_t nIndex);
+    EXPORT bool Record_IsOutgoing(int32_t nIndex);
+    EXPORT bool Record_IsRecord(int32_t nIndex);
+    EXPORT bool Record_IsReceipt(int32_t nIndex);
+    EXPORT bool Record_IsMail(int32_t nIndex);
+    EXPORT bool Record_IsTransfer(int32_t nIndex);
+    EXPORT bool Record_IsCheque(int32_t nIndex);
+    EXPORT bool Record_IsInvoice(int32_t nIndex);
+    EXPORT bool Record_IsVoucher(int32_t nIndex);
+    EXPORT bool Record_IsContract(int32_t nIndex);
+    EXPORT bool Record_IsPaymentPlan(int32_t nIndex);
+    EXPORT bool Record_IsCash(int32_t nIndex);
+    EXPORT bool Record_HasContents(int32_t nIndex);
+    EXPORT bool Record_HasMemo(int32_t nIndex);
+    // ---------------------------------------
+    EXPORT bool Record_IsExpired(int32_t nIndex);
+    EXPORT bool Record_IsCanceled(int32_t nIndex);
+    // ---------------------------------------
+    EXPORT void Record_SetExpired(int32_t nIndex);
+    EXPORT void Record_SetCanceled(int32_t nIndex);
+    // ---------------------------------------
+    // Todo: convert to time64_t
+    EXPORT int64_t Record_GetValidFrom(int32_t nIndex);
+    // Todo: convert to time64_t
+    EXPORT int64_t Record_GetValidTo(int32_t nIndex);
+    // ---------------------------------------
+    EXPORT void Record_SetDateRange(int32_t nIndex, int64_t tValidFrom,
+                                    int64_t tValidTo);
+    // ---------------------------------------
+    // For completed records (not pending.)
+    EXPORT bool Record_CanDeleteRecord(int32_t nIndex);
+    // For incoming, pending
+    // (not-yet-accepted)
+    // instruments.
+    EXPORT bool Record_CanAcceptIncoming(int32_t nIndex);
+    // For INcoming, pending
+    // (not-yet-accepted)
+    // instruments.
+    EXPORT bool Record_CanDiscardIncoming(int32_t nIndex);
+    // For OUTgoing, pending
+    // (not-yet-accepted)
+    // instruments.
+    EXPORT bool Record_CanCancelOutgoing(int32_t nIndex);
+    // For OUTgoing cash.
+    // (No way to see if
+    // it's been accepted,
+    // so this lets you
+    // erase the record of
+    // sending it.)
+    EXPORT bool Record_CanDiscardOutgoingCash(int32_t nIndex);
+    // ---------------------------------------
+    // For outgoing, pending
+    // (not-yet-accepted) instruments.
+    // NOTE: str_via_acct can be blank if a
+    // cheque. But if voucher, smart
+    // contract, payment plan, you must
+    // provide.
+    EXPORT bool Record_CancelOutgoing(int32_t nIndex,
+                                      const std::string str_via_acct);
+    // For incoming, pending
+    // (not-yet-accepted) instruments.
+    EXPORT bool Record_AcceptIncomingInstrument(
+        int32_t nIndex, const std::string& str_into_acct);
+    // For incoming, pending
+    // (not-yet-accepted)
+    // transfers.
+    EXPORT bool Record_AcceptIncomingTransfer(int32_t nIndex);
+    // For incoming,
+    // (not-yet-accepted)
+    // receipts.
+    EXPORT bool Record_AcceptIncomingReceipt(int32_t nIndex);
+    // For incoming, pending
+    // (not-yet-accepted)
+    // instruments.
+    EXPORT bool Record_DiscardIncoming(int32_t nIndex);
+    // For completed records (not
+    // pending.)
+    EXPORT bool Record_DeleteRecord(int32_t nIndex);
+    // For OUTgoing cash. (No
+    // way to see if it's been
+    // accepted, so this lets
+    // you erase the record of
+    // sending it.)
+    EXPORT bool Record_DiscardOutgoingCash(int32_t nIndex);
+    // ---------------------------------------
+    // If this is set to 3, for
+    // example, for a payment in the
+    // payments inbox, then index 3
+    // in that same box refers to
+    // the payment corresponding to
+    // this record.
+    EXPORT int32_t Record_GetBoxIndex(int32_t nIndex);
+    EXPORT void Record_SetBoxIndex(int32_t nIndex, int32_t nBoxIndex);
+    // ---------------------------------------
+    // Trans Num of receipt in
+    // the box. (Unless
+    // outpayment, contains
+    // number for instrument.)
+    EXPORT int64_t Record_GetTransactionNum(int32_t nIndex);
+    EXPORT void Record_SetTransactionNum(int32_t nIndex, int64_t lTransNum);
+    // ---------------------------------------
+    // Trans Num of the
+    // cheque inside the
+    // receipt in the box.
+    EXPORT int64_t Record_GetTransNumForDisplay(int32_t nIndex);
+    EXPORT void Record_SetTransNumForDisplay(int32_t nIndex, int64_t lTransNum);
+    // ---------------------------------------
+    EXPORT OTRecord::OTRecordType Record_GetRecordType(int32_t nIndex);
+    // ---------------------------------------
+    EXPORT const std::string& Record_GetServerID(int32_t nIndex);
+    EXPORT const std::string& Record_GetInstrumentDefinitionID(int32_t nIndex);
+    // BTC, USD, etc.
+    EXPORT const std::string& Record_GetCurrencyTLA(int32_t nIndex);
+    EXPORT const std::string& Record_GetNymID(int32_t nIndex);
+    EXPORT const std::string& Record_GetAccountID(int32_t nIndex);
+    // ---------------------------------------
+    // Could be sender OR recipient depending on whether
+    // incoming/outgoing.
+    EXPORT const std::string& Record_GetOtherNymID(int32_t nIndex);
+    // Could be sender OR recipient depending on whether
+    // incoming/outgoing.
+    EXPORT const std::string& Record_GetOtherAccountID(int32_t nIndex);
+    // ---------------------------------------
+    EXPORT const std::string& Record_GetName(int32_t nIndex);
+    EXPORT const std::string& Record_GetDate(int32_t nIndex);
+    EXPORT const std::string& Record_GetAmount(int32_t nIndex);
+    EXPORT const std::string& Record_GetInstrumentType(int32_t nIndex);
+    EXPORT const std::string& Record_GetMemo(int32_t nIndex);
+    EXPORT const std::string& Record_GetContents(int32_t nIndex);
+    // ---------------------------------------
+    EXPORT void Record_SetOtherNymID(int32_t nIndex, const std::string& str_ID);
+    EXPORT void Record_SetOtherAccountID(int32_t nIndex,
+                                         const std::string& str_ID);
+    EXPORT void Record_SetMemo(int32_t nIndex, const std::string& str_memo);
+    EXPORT void Record_SetContents(int32_t nIndex,
+                                   const std::string& str_contents);
+    // ---------------------------------------
+    // These don't work unless the record is for a pending
+    // payment plan.
+    //
+    EXPORT bool Record_HasInitialPayment(int32_t nIndex);
+    EXPORT bool Record_HasPaymentPlan(int32_t nIndex);
+
+    // Todo: convert to time64_t
+    EXPORT int64_t Record_GetInitialPaymentDate(int32_t nIndex);
+    // Todo: convert to time64_t
+    EXPORT int64_t Record_GetPaymentPlanStartDate(int32_t nIndex);
+    // Todo: convert to time64_t
+    EXPORT int64_t Record_GetTimeBetweenPayments(int32_t nIndex);
+
+    EXPORT int64_t Record_GetInitialPaymentAmount(int32_t nIndex);
+    EXPORT int64_t Record_GetPaymentPlanAmount(int32_t nIndex);
+
+    EXPORT int32_t Record_GetMaximumNoPayments(int32_t nIndex);
+    // ---------------------------------------
+    EXPORT bool Record_FormatAmount(int32_t nIndex, std::string& str_output);
+    EXPORT bool Record_FormatAmountWithoutSymbol(int32_t nIndex,
+                                                 std::string& str_output);
+    EXPORT bool Record_FormatDescription(int32_t nIndex,
+                                         std::string& str_output);
+    EXPORT bool Record_FormatShortMailDescription(int32_t nIndex,
+                                                  std::string& str_output);
+    EXPORT bool Record_FormatMailSubject(int32_t nIndex,
+                                         std::string& str_output);
 };
 
 } // namespace opentxs

@@ -3881,4 +3881,722 @@ OTRecord OTRecordList::GetRecord(int32_t nIndex)
     return *(m_contents[nIndex]);
 }
 
+bool OTRecordList::Record_IsPending(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.IsPending();
+}
+
+bool OTRecordList::Record_IsOutgoing(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.IsOutgoing();
+}
+
+bool OTRecordList::Record_IsRecord(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.IsRecord();
+}
+
+bool OTRecordList::Record_IsReceipt(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.IsReceipt();
+}
+
+bool OTRecordList::Record_IsMail(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.IsMail();
+}
+
+bool OTRecordList::Record_IsTransfer(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.IsTransfer();
+}
+
+bool OTRecordList::Record_IsCheque(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.IsCheque();
+}
+
+bool OTRecordList::Record_IsInvoice(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.IsInvoice();
+}
+
+bool OTRecordList::Record_IsVoucher(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.IsVoucher();
+}
+
+bool OTRecordList::Record_IsContract(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.IsContract();
+}
+
+bool OTRecordList::Record_IsPaymentPlan(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.IsPaymentPlan();
+}
+
+bool OTRecordList::Record_IsCash(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.IsCash();
+}
+
+bool OTRecordList::Record_HasContents(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.HasContents();
+}
+
+bool OTRecordList::Record_HasMemo(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.HasMemo();
+}
+
+bool OTRecordList::Record_IsExpired(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.IsExpired();
+}
+
+bool OTRecordList::Record_IsCanceled(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.IsCanceled();
+}
+
+// ---------------------------------------
+void OTRecordList::Record_SetExpired(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    record.SetExpired();
+}
+
+void OTRecordList::Record_SetCanceled(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    record.SetCanceled();
+}
+
+int64_t OTRecordList::Record_GetValidFrom(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.GetValidFrom();
+}
+
+int64_t OTRecordList::Record_GetValidTo(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.GetValidTo();
+}
+
+void OTRecordList::Record_SetDateRange(int32_t nIndex, int64_t tValidFrom,
+                                       int64_t tValidTo)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    record.SetDateRange(tValidFrom, tValidTo);
+}
+
+bool OTRecordList::Record_CanDeleteRecord(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.CanDeleteRecord();
+}
+
+bool OTRecordList::Record_CanAcceptIncoming(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.CanAcceptIncoming();
+}
+
+bool OTRecordList::Record_CanDiscardIncoming(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.CanDiscardIncoming();
+}
+
+bool OTRecordList::Record_CanCancelOutgoing(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.CanCancelOutgoing();
+}
+
+bool OTRecordList::Record_CanDiscardOutgoingCash(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.CanDiscardOutgoingCash();
+}
+
+bool OTRecordList::Record_CancelOutgoing(int32_t nIndex,
+                                         const std::string str_via_acct)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.CancelOutgoing(str_via_acct);
+}
+
+bool OTRecordList::Record_AcceptIncomingInstrument(
+    int32_t nIndex, const std::string& str_into_acct)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.AcceptIncomingInstrument(str_into_acct);
+}
+
+bool OTRecordList::Record_AcceptIncomingTransfer(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.AcceptIncomingTransfer();
+}
+
+bool OTRecordList::Record_AcceptIncomingReceipt(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.AcceptIncomingReceipt();
+}
+
+bool OTRecordList::Record_DiscardIncoming(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.DiscardIncoming();
+}
+
+bool OTRecordList::Record_DeleteRecord(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.DeleteRecord();
+}
+
+bool OTRecordList::Record_DiscardOutgoingCash(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.DiscardOutgoingCash();
+}
+// ---------------------------------------
+int32_t OTRecordList::Record_GetBoxIndex(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.GetBoxIndex();
+}
+
+void OTRecordList::Record_SetBoxIndex(int32_t nIndex, int32_t nBoxIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    record.SetBoxIndex(nBoxIndex);
+}
+
+int64_t OTRecordList::Record_GetTransactionNum(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.GetTransactionNum();
+}
+
+void OTRecordList::Record_SetTransactionNum(int32_t nIndex, int64_t lTransNum)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    record.SetTransactionNum(lTransNum);
+}
+
+// ---------------------------------------
+int64_t OTRecordList::Record_GetTransNumForDisplay(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.GetTransNumForDisplay();
+}
+
+void OTRecordList::Record_SetTransNumForDisplay(int32_t nIndex,
+                                                int64_t lTransNum)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    record.SetTransNumForDisplay(lTransNum);
+}
+
+// ---------------------------------------
+OTRecord::OTRecordType OTRecordList::Record_GetRecordType(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.GetRecordType();
+}
+
+// ---------------------------------------
+const std::string& OTRecordList::Record_GetServerID(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.GetNotaryID();
+}
+
+const std::string& OTRecordList::Record_GetInstrumentDefinitionID(
+    int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.GetInstrumentDefinitionID();
+}
+
+const std::string& OTRecordList::Record_GetCurrencyTLA(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.GetCurrencyTLA();
+}
+
+const std::string& OTRecordList::Record_GetNymID(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.GetNymID();
+}
+
+const std::string& OTRecordList::Record_GetAccountID(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.GetAccountID();
+}
+
+// ---------------------------------------
+const std::string& OTRecordList::Record_GetOtherNymID(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.GetOtherNymID();
+}
+
+const std::string& OTRecordList::Record_GetOtherAccountID(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.GetOtherAccountID();
+}
+
+const std::string& OTRecordList::Record_GetName(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.GetName();
+}
+
+const std::string& OTRecordList::Record_GetDate(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.GetDate();
+}
+
+const std::string& OTRecordList::Record_GetAmount(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.GetAmount();
+}
+
+const std::string& OTRecordList::Record_GetInstrumentType(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.GetInstrumentType();
+}
+
+const std::string& OTRecordList::Record_GetMemo(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.GetMemo();
+}
+
+const std::string& OTRecordList::Record_GetContents(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.GetContents();
+}
+
+void OTRecordList::Record_SetOtherNymID(int32_t nIndex,
+                                        const std::string& str_ID)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    record.SetOtherNymID(str_ID);
+}
+
+void OTRecordList::Record_SetOtherAccountID(int32_t nIndex,
+                                            const std::string& str_ID)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    record.SetOtherAccountID(str_ID);
+}
+
+void OTRecordList::Record_SetMemo(int32_t nIndex, const std::string& str_memo)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    record.SetMemo(str_memo);
+}
+
+void OTRecordList::Record_SetContents(int32_t nIndex,
+                                      const std::string& str_contents)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    record.SetContents(str_contents);
+}
+
+bool OTRecordList::Record_HasInitialPayment(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.HasInitialPayment();
+}
+
+bool OTRecordList::Record_HasPaymentPlan(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.HasPaymentPlan();
+}
+
+int64_t OTRecordList::Record_GetInitialPaymentDate(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.GetInitialPaymentDate();
+}
+
+int64_t OTRecordList::Record_GetPaymentPlanStartDate(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.GetPaymentPlanStartDate();
+}
+
+int64_t OTRecordList::Record_GetTimeBetweenPayments(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.GetTimeBetweenPayments();
+}
+
+int64_t OTRecordList::Record_GetInitialPaymentAmount(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.GetInitialPaymentAmount();
+}
+
+int64_t OTRecordList::Record_GetPaymentPlanAmount(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.GetPaymentPlanAmount();
+}
+
+int32_t OTRecordList::Record_GetMaximumNoPayments(int32_t nIndex)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.GetMaximumNoPayments();
+}
+
+// ---------------------------------------
+bool OTRecordList::Record_FormatAmount(int32_t nIndex, std::string& str_output)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.FormatAmount(str_output);
+}
+
+bool OTRecordList::Record_FormatAmountWithoutSymbol(int32_t nIndex,
+                                                    std::string& str_output)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.FormatAmountWithoutSymbol(str_output);
+}
+
+bool OTRecordList::Record_FormatDescription(int32_t nIndex,
+                                            std::string& str_output)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.FormatDescription(str_output);
+}
+
+bool OTRecordList::Record_FormatShortMailDescription(int32_t nIndex,
+                                                     std::string& str_output)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.FormatShortMailDescription(str_output);
+}
+
+bool OTRecordList::Record_FormatMailSubject(int32_t nIndex,
+                                            std::string& str_output)
+{
+    OT_ASSERT_MSG((nIndex >= 0) && (nIndex < size()),
+                  "OTRecordList: index out of bounds.");
+
+    OTRecord record = GetRecord(nIndex);
+
+    return record.FormatMailSubject(str_output);
+}
+
 } // namespace opentxs
