@@ -1382,6 +1382,10 @@ bool Contract::ParseRawFile()
             }
 
             if (bHaveEnteredContentMode &&
+                line.lenght() > 3 &&
+                line.at(1) == '-' &&
+                line.at(2) == '-' &&
+                line.at(3) == '-' &&
                 line.find("END SIGNED") != std::string::npos) {
                 bContentMode = false;
                 continue;
